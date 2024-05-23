@@ -1,33 +1,46 @@
+import java.util.Random;
+import java.util.Scanner;
+public class DemoUsosDoWhile {
 
-/**
- * Write a description of class DemoUsosDoWhile here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class DemoUsosDoWhile
-{
-    // instance variables - replace the example below with your own
-    private int x;
+    public static void adivinaNumero() {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
 
-    /**
-     * Constructor for objects of class DemoUsosDoWhile
-     */
-    public DemoUsosDoWhile()
-    {
-        // initialise instance variables
-        x = 0;
-    }
+        int numeroAleatorio = random.nextInt(5) + 1;
+        int numero = 0;
+        String sobrenombre = "";
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        do {
+            System.out.println("Introduce un número entre 1 y 5:");
+            numero = scanner.nextInt();
+            
+            if (numero == numeroAleatorio) {
+                System.out.println("¡Felicidades, has acertado el número!");
+            } else {
+                switch (numero) {
+                    case 1:
+                        sobrenombre = "El galán";
+                        break;
+                    case 2:
+                        sobrenombre = "El patito";
+                        break;
+                    case 3:
+                        sobrenombre = "San Cono";
+                        break;
+                    case 4:
+                        sobrenombre = "La cama";
+                        break;
+                    case 5:
+                        sobrenombre = "El galo";
+                        break;
+                    default:
+                        sobrenombre = "desconocido";
+                        break;
+                }
+                System.out.println("¡Has fallado! El número " + numero + " es " + sobrenombre + " en el bingo. Sigue probando, este no es el número correcto.");
+            }
+        } while (numero != numeroAleatorio);
+
+        scanner.close();
     }
 }
